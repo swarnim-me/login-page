@@ -1,7 +1,14 @@
+:root {
+    --font-clr: #222222;
+    --primary-clr: #3BA99C;
+    --input-clr: #969696;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto';
 }
 
 main {
@@ -22,14 +29,17 @@ main {
 }
 
 .content {
-    flex: 2;
+    flex: 1;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .overlay {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #3BA99C;
+    background: var(--primary-clr);
     opacity: 85%;
     z-index: 1;
 }
@@ -70,4 +80,71 @@ main {
     aspect-ratio: 1 / 1;
     border-radius: 100px;
     background: white;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-family: 'Montserrat';
+    color: var(--font-clr);
+}
+
+.content h1 span {
+    font-family: 'Montserrat';
+}
+
+form {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.form-row+.form-row {
+    margin-top: 40px;
+}
+
+.form-field {
+    flex: 1;
+}
+
+.form-field input {
+    border: none;
+    border-bottom: 1px solid var(--input-clr);
+    font-size: 1.2rem;
+    outline: none;
+    padding-bottom: 10px;
+}
+
+label {
+    color: var(--input-clr);
+    margin-bottom: 10px;
+}
+
+.form-field * {
+    width: 100%;
+}
+
+label {
+    display: block;
+}
+
+form button[type="submit"] {
+    margin-top: 60px;
+    margin-inline: auto;
+    width: 250px;
+    font-size: 1.2rem;
+    background: var(--primary-clr);
+    font-family: 'Bree Serif';
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
 }
