@@ -2,6 +2,9 @@
     --font-clr: #222222;
     --primary-clr: #3BA99C;
     --input-clr: #969696;
+    --input-success: rgb(124, 243, 124);
+    --input-error: rgb(244, 63, 63);
+    --input-error-field: rgb(244, 63, 63, .2);
 }
 
 * {
@@ -92,6 +95,26 @@ main {
     font-family: 'Montserrat';
 }
 
+.circle::after {
+    content: '';
+    background-image: url("../assets/images/scribble.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: scale(200%, 140%);
+    opacity: .4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.circle {
+    position: relative;
+}
+
 form {
     width: 100%;
     flex: 1;
@@ -121,6 +144,12 @@ form {
     font-size: 1.2rem;
     outline: none;
     padding-bottom: 10px;
+    color: var(--font-clr);
+}
+
+.form-field input::placeholder {
+    color: var(--input-clr);
+    opacity: .5;
 }
 
 label {
@@ -147,4 +176,46 @@ form button[type="submit"] {
     padding: 15px;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+form button[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
+form small {
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 200;
+    color: var(--input-clr);
+    margin-top: 20px;
+    font-size: .9rem;
+}
+
+form small a {
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.log-in-link {
+    color: var(--primary-clr);
+}
+
+
+/* Input Validations */
+label:has(+input:valid) {
+    color: var(--primary-clr);
+}
+
+label:has(+input:focus:invalid) {
+    color: var(--input-error);
+}
+
+label:has(+input:not([type="password"]):not(:placeholder-shown):invalid) {
+    color: var(--input-error);
+}
+
+input:not([type="password"]):not(:placeholder-shown):invalid {
+    background: var(--input-error-field);
 }
