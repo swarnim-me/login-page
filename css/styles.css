@@ -235,11 +235,11 @@ label:has(+input:focus:invalid) {
     color: var(--input-error);
 }
 
-label:has(+input:not([type="password"]):not(:placeholder-shown):invalid) {
+label:has(+input:not(:placeholder-shown):invalid) {
     color: var(--input-error);
 }
 
-input:not([type="password"]):not(:placeholder-shown):invalid {
+input:not(:placeholder-shown):invalid {
     background: var(--input-error-field);
 }
 
